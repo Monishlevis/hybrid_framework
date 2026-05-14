@@ -6,6 +6,7 @@ import utils.DriverManager;
 import pages.LoginPage;
 import org.testng.Assert;
 import utils.ConfigReader;
+import utils.JsonReader;
 
 public class LoginSteps {
 
@@ -19,10 +20,17 @@ public void user_is_on_login_page() {
     driver.get(ConfigReader.getProperty("url"));
 }
 
+// @When("user enters username and password")
+// public void user_enters_username_and_password() {
+//     loginPage.enterUsername(ConfigReader.getProperty("username"));
+//     loginPage.enterPassword(ConfigReader.getProperty("password"));
+// }
+
+
 @When("user enters username and password")
 public void user_enters_username_and_password() {
-    loginPage.enterUsername(ConfigReader.getProperty("username"));
-    loginPage.enterPassword(ConfigReader.getProperty("password"));
+    loginPage.enterUsername(JsonReader.getData("username"));
+    loginPage.enterPassword(JsonReader.getData("password"));
 }
 
     @And("clicks on login button")
