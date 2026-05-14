@@ -10,7 +10,7 @@ import utils.JsonReader;
 
 public class LoginSteps {
 
-    WebDriver driver = DriverManager.getDriver();
+    WebDriver driver = DriverManager.getDriver("chrome");
     LoginPage loginPage = new LoginPage(driver);
 
 
