@@ -2,8 +2,9 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -21,8 +22,19 @@ public class DriverManager {
 
             switch (browser.toLowerCase()) {
                 case "chrome":
+
+                    ChromeOptions options = new ChromeOptions();
+
+                    // Add arguments
+                    options.addArguments("--start-maximized");
+                    options.addArguments("--disable-notifications");
+                    options.addArguments("--disable-extensions");
+
+                    // Headless mode (optional)
+                    // options.addArguments("--headless=new");
+
                     WebDriverManager.chromedriver().setup();
-                    driver.set(new ChromeDriver());
+                    driver.set(new ChromeDriver(options));
                     break;
 
                 case "firefox":
