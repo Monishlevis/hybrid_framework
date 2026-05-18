@@ -29,18 +29,19 @@ public void user_is_on_login_page() {
 
 @When("user enters username and password")
 public void user_enters_username_and_password() {
-    loginPage.enterUsername(JsonReader.getData("username"));
-    loginPage.enterPassword(JsonReader.getData("password"));
+    loginPage.enterUsername(ConfigReader.getProperty("username"));
+    loginPage.enterPassword(ConfigReader.getProperty("password"));
 }
 
     @And("clicks on login button")
     public void clicks_on_login_button() {
         loginPage.clickLogin();
-    }
+    }   
 
     @Then("user should be navigated to dashboard")
     public void user_should_be_navigated_to_dashboard() {
         String currentUrl = driver.getCurrentUrl();
+        System.out.println("Current URL: " + currentUrl);
         Assert.assertTrue(currentUrl.contains("dashboard"), "Login failed");
     }
 }
