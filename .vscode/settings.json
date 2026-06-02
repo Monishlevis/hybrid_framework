@@ -1,0 +1,12 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    },
+    "editor.inlayHints.enabled": "on",
+    "git.autofetch": true,
+
+    "problems.decorations.enabled": true,
+    "editor.wordWrap": "on"
+}
